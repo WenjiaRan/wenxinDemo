@@ -13,8 +13,8 @@ document.getElementById('chat-input').addEventListener('keypress', function(even
             var chatOutput = document.getElementById('chat-output');
             chatOutput.innerHTML += `<div>User: ${question}</div>`;
 
-            // 使用data.result来获取响应文本
-            var botResponse = data.result || 'No response';
+            // 使用data.result来获取响应文本，并替换换行符为HTML的<br>标签
+            var botResponse = (data.result || 'No response').replace(/\n/g, '<br>');
             chatOutput.innerHTML += `<div>Bot: ${botResponse}</div>`;
 
             chatOutput.scrollTop = chatOutput.scrollHeight;
